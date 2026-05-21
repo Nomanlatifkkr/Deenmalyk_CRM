@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  scroll-behavior: smooth;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+  }
+}
+
+/* Subtle scrollbar – appears only on hover */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+*:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+*:hover::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+*:hover {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+/* FullCalendar Dark Theme Override */
+.fc {
+  --fc-border-color: rgba(255, 255, 255, 0.1);
+  --fc-button-bg-color: rgba(255, 255, 255, 0.05);
+  --fc-button-border-color: rgba(255, 255, 255, 0.1);
+  --fc-button-hover-bg-color: rgba(255, 255, 255, 0.1);
+  --fc-button-active-bg-color: rgba(59, 130, 246, 0.3);
+  --fc-today-bg-color: rgba(59, 130, 246, 0.1);
+  --fc-page-bg-color: transparent;
+  --fc-neutral-bg-color: rgba(255, 255, 255, 0.02);
+  --fc-list-event-hover-bg-color: rgba(255, 255, 255, 0.05);
+}
+
+.fc {
+  background: transparent;
+  color: #e5e7eb;
+}
+
+.fc-toolbar-title {
+  color: white;
+}
+
+.fc-button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #d1d5db !important;
+}
+
+.fc-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+.fc-button-primary:not(:disabled).fc-button-active,
+.fc-button-primary:not(:disabled):active {
+  background: rgba(59, 130, 246, 0.4) !important;
+  border-color: rgba(59, 130, 246, 0.6) !important;
+  color: white !important;
+}
+
+.fc-col-header-cell {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.fc-col-header-cell-cushion {
+  color: #9ca3af;
+}
+
+.fc-daygrid-day-number,
+.fc-timegrid-slot-label-cushion {
+  color: #d1d5db;
+}
+
+.fc-day-today {
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+.fc-daygrid-day-frame:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.fc-event {
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  padding: 0.125rem 0.375rem;
+  cursor: pointer;
+}
+
+.fc-event-title {
+  font-weight: 500;
+}
+
+.fc-timegrid-event {
+  border-left: 3px solid;
+}
+
+.fc-v-event .fc-event-main {
+  color: white;
+}
+
+/* Global select / dropdown styling */
+select,
+select:focus,
+select:active {
+  background-color: #1f1f1f !important;   /* dark background */
+  color: #ffffff !important;              /* white text */
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.25rem;
+  cursor: pointer;
+}
+
+select:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+select option {
+  background-color: #1f1f1f !important;
+  color: #ffffff !important;
+}
+
+/* For custom dropdowns using .glass-card or other classes, ensure consistency */
+.glass select {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(4px);
+}
+
+/* Remove default arrow in IE/Edge */
+select::-ms-expand {
+  display: none;
+}

@@ -1,0 +1,419 @@
+# Complete Page List for CRM System
+
+Based on your requirements, here is the **complete page structure** for the frontend:
+
+---
+
+## 📁 AUTHENTICATION MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Login | `/login` | User authentication with email/password |
+| Register | `/register` | New user registration |
+| Forgot Password | `/forgot-password` | Password reset request |
+| Reset Password | `/reset-password` | Set new password with token |
+| Two-Factor Auth | `/2fa` | Optional 2FA verification |
+
+---
+
+## 📁 DASHBOARD MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Main Dashboard | `/dashboard` | KPI overview, key figures, charts |
+| Company Selector | `/dashboard/company-switch` | Switch between 3 companies |
+| Daily Key Figures | `/dashboard/key-figures` | Revenue, costs, utilization, contribution margins |
+
+---
+
+## 📁 COMPANY MANAGEMENT MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Company Overview | `/companies` | List all 3 companies |
+| Company Details | `/companies/[id]` | Edit company settings |
+| Company Logo Settings | `/companies/[id]/logo` | Upload/change logo (future independent logos) |
+| Invoice Number Settings | `/companies/[id]/invoice-numbers` | Configure consecutive invoice numbering |
+
+---
+
+## 📁 USER & ROLE MANAGEMENT MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| User List | `/users` | All system users |
+| User Details | `/users/[id]` | Edit user profile |
+| Create User | `/users/create` | Add new user |
+| Role Management | `/roles` | Manage roles and permissions |
+| Role Permissions | `/roles/[id]/permissions` | Assign module access per role |
+
+---
+
+## 📁 CUSTOMER MANAGEMENT MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Customer List | `/customers` | All customers with search/filter |
+| Customer Details | `/customers/[id]` | View/edit customer |
+| Create Customer | `/customers/create` | Add new customer |
+| VAT §13b Setting | `/customers/[id]/vat` | Configure VAT-exempt services |
+
+---
+
+## 📁 SUPPLIER MANAGEMENT MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Supplier List | `/suppliers` | All suppliers |
+| Supplier Details | `/suppliers/[id]` | View/edit supplier |
+| Create Supplier | `/suppliers/create` | Add new supplier |
+
+---
+
+## 📁 MATERIAL MANAGEMENT MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Material List | `/materials` | All materials with prices |
+| Material Details | `/materials/[id]` | View/edit material |
+| Create Material | `/materials/create` | Add new material |
+| Supplier Pricing | `/materials/[id]/prices` | Set prices per supplier |
+
+---
+
+## 📁 SERVICE SPECIFICATIONS MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Service List | `/services` | All service specifications |
+| Service Details | `/services/[id]` | View/edit service |
+| Create Service | `/services/create` | Add new service for quotes/orders/invoices |
+
+---
+
+## 📁 ORDER MANAGEMENT MODULE (SCREED WORKS)
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Order List | `/orders` | All orders with status |
+| Order Details | `/orders/[id]` | View order details with media attachments |
+| Create Order | `/orders/create` | Manual order creation |
+| PDF Import Order | `/orders/import-pdf` | Auto-create order from PDF |
+| Order Status Board | `/orders/board` | Kanban view of order status |
+| Order Report | `/orders/[id]/report` | Generate order report |
+| Order Media | `/orders/[id]/media` | Attach PDFs, images, videos |
+| Order Key Figures | `/orders/[id]/key-figures` | Planned vs actual costs, contribution margin |
+| Order Post-Calculation | `/orders/[id]/post-calculation` | Plan DB vs Echt DB |
+
+---
+
+## 📁 OFFER / QUOTE MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Offer List | `/offers` | All offers/quotes |
+| Offer Details | `/offers/[id]` | View/edit offer |
+| Create Offer | `/offers/create` | Create new offer with checklist |
+| Offer Checklist | `/offers/create/checklist` | Checklist form (m², assembly height, etc.) |
+| AI Auto-Generate Offer | `/offers/auto-generate` | AI-powered offer generation from checklist answers |
+| Offer Subsidies | `/offers/[id]/subsidies` | Automatic subsidy calculation |
+| Convert to Order | `/offers/[id]/convert-to-order` | Convert offer to work order |
+| Convert to Invoice | `/offers/[id]/convert-to-invoice` | Convert offer to invoice |
+| Drag-Drop Services | `/offers/[id]/services` | Drag-drop services into offer |
+
+---
+
+## 📁 INVOICE MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Invoice List | `/invoices` | All invoices |
+| Invoice Details | `/invoices/[id]` | View/edit invoice |
+| Create Invoice | `/invoices/create` | Manual invoice creation |
+| Auto Invoice | `/invoices/auto-create` | Auto-create after completion approval |
+| Invoice Approval | `/invoices/approval` | Pending approval invoices |
+| Invoice Settings | `/invoices/settings` | Invoice numbering, templates |
+
+---
+
+## 📁 CALENDAR & SCHEDULING MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Calendar View | `/calendar` | Main calendar with appointments |
+| Schedule View | `/calendar/schedule` | See orders by date (Appendix 2) |
+| Crew View | `/calendar/crew-view` | See crews by assignment (Appendix 3) |
+| Appointment Details | `/calendar/appointment/[id]` | Edit movable appointment |
+| Auto Schedule | `/calendar/auto-schedule` | Auto-create from orders |
+| Capacity Planning | `/calendar/capacity` | Weekly capacity key figures |
+
+---
+
+## 📁 CREW MANAGEMENT MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Crew List | `/crews` | All crews (main + sub) |
+| Crew Details | `/crews/[id]` | View/edit crew |
+| Create Crew | `/crews/create` | Add new crew |
+| Crew Costs | `/crews/[id]/costs` | Area-based costing |
+| Crew Assignment | `/crews/[id]/assignments` | Assign to orders/sub-services |
+| Crew Settlement | `/crews/settlements` | Generate crew settlements (m² + costs) |
+| Send to Crew | `/crews/[id]/send-order` | WhatsApp/Email order to crew |
+
+---
+
+## 📁 MATERIAL ORDERING MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Material Order List | `/material-orders` | All material orders |
+| Material Order Details | `/material-orders/[id]` | View/edit |
+| Create Material Order | `/material-orders/create` | Generate from order details |
+| Supplier Suggestion | `/material-orders/supplier-suggestion` | Auto-suggest suppliers with prices |
+| Percentage Display | `/material-orders/[id]/percentage` | Order completion percentage |
+| Preliminary Order | `/material-orders/[id]/preliminary` | Send preliminary order |
+| Final Order | `/material-orders/[id]/final` | Send final order before start |
+| Order Confirmation | `/material-orders/[id]/confirmation` | Link supplier confirmation |
+
+---
+
+## 📁 COMPLAINT MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Complaint List | `/complaints` | All complaint orders |
+| Complaint Details | `/complaints/[id]` | View/edit complaint |
+| Create Complaint | `/complaints/create` | Auto-create from complaint report |
+| Complaint Calendar | `/complaints/calendar` | Scheduled complaints |
+| Complaint Completion | `/complaints/[id]/complete` | Send completion notice |
+
+---
+
+## 📁 PROJECT MANAGEMENT MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Project List | `/projects` | All projects |
+| Project Details | `/projects/[id]` | View project with sub-services |
+| Create Project | `/projects/create` | Create from offer/order |
+| Sub-Services | `/projects/[id]/sub-services` | Manage sub-services for crew assignment |
+| Completion Notification | `/projects/[id]/complete` | Send completion email |
+| Actual Costs | `/projects/[id]/actual-costs` | Record actual costs |
+
+---
+
+## 📁 REPORTING MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Reports Dashboard | `/reports` | All reports overview |
+| Order Report | `/reports/orders` | Generate order reports |
+| Key Figures Report | `/reports/key-figures` | Daily/weekly key figures |
+| Capacity Report | `/reports/capacity` | Utilization reports |
+| Financial Report | `/reports/financial` | Revenue, costs, contribution margins |
+| Crew Settlement Report | `/reports/crew-settlements` | Payroll preparation |
+
+---
+
+## 📁 INTEGRATION / INTERFACE MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Import Center | `/import` | Data import from old system |
+| PDF Import | `/import/pdf` | Import orders from PDF |
+| GAEB Import | `/import/gaeb` | GAEB standard import |
+| Export Center | `/export` | Data export |
+| GAEB Export | `/export/gaeb` | GAEB standard export |
+| Interface Settings | `/interfaces` | Configure email/SMS/WhatsApp/AI phone |
+
+---
+
+## 📁 COMMUNICATION MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Email Center | `/communication/email` | Send/receive emails |
+| SMS Center | `/communication/sms` | Send SMS |
+| WhatsApp Center | `/communication/whatsapp` | Send WhatsApp messages |
+| AI Telephone | `/communication/ai-phone` | Future AI phone integration |
+| Notification Log | `/communication/logs` | All communication history |
+
+---
+
+## 📁 SETTINGS MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| General Settings | `/settings` | System settings |
+| Modular Settings | `/settings/modules` | Enable/disable modules |
+| Backup Settings | `/settings/backup` | Configure daily backups |
+| Logo Settings | `/settings/logo` | Company logo management |
+| Invoice Template | `/settings/invoice-template` | Modern marketing design |
+
+---
+
+## 📁 HEATING WORKS MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Heating Orders | `/heating/orders` | Heating-specific orders |
+| Heating Offers | `/heating/offers` | Heating offers with subsidies |
+| Heating Invoices | `/heating/invoices` | Heating invoices |
+| Heating Suppliers | `/heating/suppliers` | Heating supplier database |
+
+---
+
+## 📁 ELECTRICAL WORKS MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Electrical Orders | `/electrical/orders` | Electrical-specific orders |
+| Electrical Offers | `/electrical/offers` | Electrical offers with subsidies |
+| Electrical Invoices | `/electrical/invoices` | Electrical invoices |
+| Electrical Suppliers | `/electrical/suppliers` | Electrical supplier database |
+
+---
+
+## 📁 PROFILE & ACCOUNT MODULE
+
+| Page | Route | Description |
+|------|-------|-------------|
+| My Profile | `/profile` | User profile settings |
+| Change Password | `/profile/change-password` | Update password |
+| Notification Settings | `/profile/notifications` | Email/SMS/WhatsApp preferences |
+| Company Selection | `/profile/company-selection` | Default company selection |
+
+---
+
+## 📁 ERROR PAGES
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Not Found | `/404` | Page not found |
+| Unauthorized | `/401` | Access denied |
+| Server Error | `/500` | Internal server error |
+| Maintenance | `/maintenance` | System maintenance mode |
+
+---
+
+## 📊 SUMMARY TABLE
+
+| Module | Number of Pages |
+|--------|----------------|
+| Authentication | 5 |
+| Dashboard | 3 |
+| Company Management | 4 |
+| User & Roles | 5 |
+| Customer Management | 4 |
+| Supplier Management | 3 |
+| Material Management | 4 |
+| Service Specifications | 3 |
+| Order Management | 9 |
+| Offer/Quote | 9 |
+| Invoice | 6 |
+| Calendar & Scheduling | 6 |
+| Crew Management | 7 |
+| Material Ordering | 7 |
+| Complaint | 5 |
+| Project Management | 5 |
+| Reporting | 6 |
+| Integration/Interface | 6 |
+| Communication | 5 |
+| Settings | 5 |
+| Heating Works | 4 |
+| Electrical Works | 4 |
+| Profile & Account | 4 |
+| Error Pages | 4 |
+| **TOTAL** | **~120 Pages** |
+
+---
+
+## 🎯 MVP PRIORITY PAGES (First Release)
+
+For your **initial working version**, focus on these **30 core pages**:
+
+### Phase 1 - Foundation (Week 1-2)
+1. `/login` - Login
+2. `/register` - Register
+3. `/dashboard` - Dashboard
+4. `/companies` - Company selection
+5. `/users` - User management
+
+### Phase 2 - Core Business (Week 3-4)
+6. `/customers` - Customer list
+7. `/customers/create` - Create cus\tomer
+8. `/suppliers` - Supplier list
+9. `/materials` - Material list
+10. `/services` - Service list
+
+### Phase 3 - Orders & Offers (Week 5-6)
+11. `/orders` - Order list
+12. `/orders/create` - Create order
+13. `/orders/import-pdf` - PDF import
+14. `/offers` - Offer list
+15. `/offers/create` - Create offer with checklist
+16. `/offers/[id]/convert-to-order` - Convert to order
+
+### Phase 4 - Invoicing (Week 7)
+17. `/invoices` - Invoice list
+18. `/invoices/create` - Create invoice
+19. `/invoices/approval` - Approval workflow
+
+### Phase 5 - Scheduling (Week 8)
+20. `/calendar` - Calendar view
+21. `/calendar/schedule` - Schedule view
+22. `/calendar/crew-view` - Crew view
+
+### Phase 6 - Crews (Week 9)
+23. `/crews` - Crew list
+24. `/crews/create` - Create crew
+25. `/crews/settlements` - Crew settlements
+
+### Phase 7 - Reporting & Settings (Week 10)
+26. `/reports/key-figures` - Key figures
+27. `/settings` - General settings
+28. `/profile` - User profile
+29. `/import` - Data import
+30. `/communication/whatsapp` - WhatsApp integration
+
+---
+
+## 📁 Suggested Folder Structure
+
+```
+app/
+├── (auth)/
+│   ├── login/
+│   ├── register/
+│   ├── forgot-password/
+│   └── reset-password/
+├── (dashboard)/
+│   ├── dashboard/
+│   ├── companies/
+│   ├── users/
+│   ├── customers/
+│   ├── suppliers/
+│   ├── materials/
+│   ├── services/
+│   ├── orders/
+│   ├── offers/
+│   ├── invoices/
+│   ├── calendar/
+│   ├── crews/
+│   ├── complaints/
+│   ├── projects/
+│   ├── reports/
+│   ├── import/
+│   ├── export/
+│   ├── communication/
+│   ├── settings/
+│   ├── heating/
+│   ├── electrical/
+│   └── profile/
+├── api/
+│   └── ...
+└── page.tsx (landing page)
+```
+
+Would you like me to start building any of these pages?
