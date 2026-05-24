@@ -1,5 +1,21 @@
 import { Service } from '@/types/service';
+export interface CatalogService {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  unit: string;
+  defaultPrice: number;
+}
 
+export const catalogServices: CatalogService[] = [
+  { id: 'sv1', name: 'Estrich verlegen', category: 'Estrich', description: 'Zementestrich inkl. Grundierung', unit: 'm²', defaultPrice: 22.5 },
+  { id: 'sv2', name: 'Heizungsinstallation', category: 'Heizung', description: 'Fußbodenheizung verlegen', unit: 'm²', defaultPrice: 85 },
+  { id: 'sv3', name: 'Elektroinstallation Unterputz', category: 'Elektro', description: 'Kabelverlegung und Anschluss', unit: 'm²', defaultPrice: 45 },
+  { id: 'sv4', name: 'Wärmepumpe installieren', category: 'Heizung', description: 'Luft-Wasser-Wärmepumpe 10kW', unit: 'Stück', defaultPrice: 12500 },
+];
+
+export const fetchCatalogServices = async () => [...catalogServices];
 export const mockServices: Service[] = [
   {
     id: '1',
