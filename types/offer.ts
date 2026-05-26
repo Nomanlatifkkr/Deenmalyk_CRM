@@ -18,6 +18,7 @@ export interface Subsidy {
 
 export interface Offer {
   id: string;
+   notes?: string;
   offerNumber: string;
   customerId: string;
   customerName: string;
