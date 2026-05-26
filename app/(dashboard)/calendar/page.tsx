@@ -1,4 +1,3 @@
-// app/(dashboard)/calendar/page.tsx
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -6,11 +5,12 @@ import { fetchAppointments, fetchCrews, updateAppointment } from '@/lib/mock/cal
 import FullCalendarView from '@/components/calendar/FullCalendarView';
 import AppointmentDetailsModal from '@/components/calendar/AppointmentDetailsModal';
 import { Calendar, Users, List, BarChart3, Zap } from 'lucide-react';
+import { Appointment, Crew } from '@/types/calendar';
 
 export default function CalendarPage() {
-  const [appointments, setAppointments] = useState([]);
-  const [crews, setCrews] = useState([]);
-  const [selectedApp, setSelectedApp] = useState(null);
+  const [appointments, setAppointments] = useState<Appointment[]>([]);
+  const [crews, setCrews] = useState<Crew[]>([]);
+  const [selectedApp, setSelectedApp] = useState<Appointment | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -21,19 +21,19 @@ export default function CalendarPage() {
     setCrews(crewsData);
     setLoading(false);
   };
-  const handleEventDrop = async (info) => {
+  const handleEventDrop = async (info: any) => {
     const updated = await updateAppointment(info.event.id, { start: info.event.start.toISOString(), end: info.event.end.toISOString() });
     setAppointments(prev => prev.map(a => a.id === updated.id ? updated : a));
   };
-  const handleEventResize = async (info) => {
+  const handleEventResize = async (info: any) => {
     const updated = await updateAppointment(info.event.id, { end: info.event.end.toISOString() });
     setAppointments(prev => prev.map(a => a.id === updated.id ? updated : a));
   };
-  const handleEventClick = (info) => {
+  const handleEventClick = (info: any) => {
     const app = appointments.find(a => a.id === info.event.id);
     if (app) { setSelectedApp(app); setModalOpen(true); }
   };
-  const handleSave = async (data) => {
+  const handleSave = async (data: Partial<Appointment>) => {
     if (selectedApp) {
       const updated = await updateAppointment(selectedApp.id, data);
       setAppointments(prev => prev.map(a => a.id === updated.id ? updated : a));
